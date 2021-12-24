@@ -1,0 +1,52 @@
+﻿@page
+@model WebAppCustom.Pages.CustomersModel
+@{
+    ViewData["Title"] = "Customers";
+}
+
+
+
+<p>Test Customers</p>
+    
+<form method="post">
+    <input type="submit" value="Create" class="btn btn-primary" />
+
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Отчество</th>
+            <th>Email</th>
+            <th>Телефон</th>
+            <th>Дата Рождения</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if(Model.listClients is null)
+        {
+            <tr>Data is null</tr>
+        }
+        else
+        {
+            @foreach (var client in Model.clients)
+        {
+            <tr>
+                <td>@client.Item1.FirstName</td>
+                <td>@client.Item1.LastName</td>
+                <td>@client.Item1.Patronymic</td>
+                <td>@client.Item2.Email</td>
+                <td>@client.Item2.Phone</td>
+                <td>@client.Item2.DateOfBirth</td>
+                <td>
+                    <a class="btn btn-success" asp-page="Operations/EditClient" asp-route-id="@client.Item1.ID">Edit</a>
+                    <a class="btn btn-danger">Delete</a>
+                </td>
+                
+            </tr>
+        }
+    }
+    </tbody>
+</table>
+</form>

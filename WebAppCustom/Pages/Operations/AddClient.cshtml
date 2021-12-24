@@ -1,0 +1,56 @@
+﻿@page
+@model WebAppCustom.Pages.Operations.AddClientModel
+@{
+     ViewData["Title"] = "Add Client";
+}
+
+<h1>Create</h1>
+<h4>clients</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <span>FirstName</span>
+                <input type="text" class="form-control" name="FirstName" asp-for=client.FirstName/>
+                <span class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>LastName</label>
+                <input type="text" class="form-control" name="LastName" asp-for=client.LastName/>
+                <span  class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Patronymic</label>
+                <input type="text" class="form-control" name="Patronymic" asp-for=client.Patronymic/>
+                <span  class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" name="Email" asp-for=infoClient.Email/>
+              <label for="floatingInput">Адрес электронной почты</label>
+            </div>
+            <div class="form-group">
+                <label>Phone</label>
+                <input type="text" class="form-control" name="Phone" asp-for=infoClient.Phone/>
+                <span  class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>DateOfBirth</label>
+                <input type="text" class="form-control" name="DateOfBirth" asp-for=infoClient.DateOfBirth/>
+                <span  class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" asp-page-handler=AddNameClient value="Create" class="btn btn-primary"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="/Customers">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

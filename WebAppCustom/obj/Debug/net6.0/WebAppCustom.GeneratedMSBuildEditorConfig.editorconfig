@@ -1,0 +1,56 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = WebAppCustom
+build_property.RootNamespace = WebAppCustom
+build_property.ProjectDir = C:\Users\NikAlex\source\repos\WebAppCustom\WebAppCustom\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\NikAlex\source\repos\WebAppCustom\WebAppCustom
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/NikAlex/source/repos/WebAppCustom/WebAppCustom/Pages/Customers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tZXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/NikAlex/source/repos/WebAppCustom/WebAppCustom/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/NikAlex/source/repos/WebAppCustom/WebAppCustom/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/NikAlex/source/repos/WebAppCustom/WebAppCustom/Pages/Operations/AddClient.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3BlcmF0aW9uc1xBZGRDbGllbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/NikAlex/source/repos/WebAppCustom/WebAppCustom/Pages/Operations/EditClient.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3BlcmF0aW9uc1xFZGl0Q2xpZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/NikAlex/source/repos/WebAppCustom/WebAppCustom/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/NikAlex/source/repos/WebAppCustom/WebAppCustom/Pages/Shopping.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hvcHBpbmcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/NikAlex/source/repos/WebAppCustom/WebAppCustom/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/NikAlex/source/repos/WebAppCustom/WebAppCustom/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/NikAlex/source/repos/WebAppCustom/WebAppCustom/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-b3sl7f7v7v
