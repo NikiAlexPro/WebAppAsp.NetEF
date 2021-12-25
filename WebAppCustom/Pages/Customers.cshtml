@@ -30,23 +30,58 @@
         }
         else
         {
-            @foreach (var client in Model.listClients)
-        {
-            <tr>
-                <td>@client.FirstName</td>
-                <td>@client.LastName</td>
-                <td>@client.Patronymic</td>
-                @*<td>@client.Email</td>
-                <td>@client.Phone</td>
-                <td>@client.DateOfBirth</td>*@
-                <td>
-                    <a class="btn btn-success" asp-page="Operations/EditClient" asp-route-id="@client.ID">Edit</a>
-                    <a class="btn btn-danger">Delete</a>
-                </td>
-                
-            </tr>
+            var result = Model.listClients.Join(Model.shops,
+                    c => c.ID,
+                    s => s.Client_id,
+                    (c, s) => new
+                    {
+                        ID = c.ID,
+                        FirstName = c.FirstName,
+                        LastName = c.LastName,
+                        Patronymic = c.Patronymic,
+                        DateShop = s.DateShop,
+                        SumShop = s.SumShop,
+                        PictureShop = s.PictureShop
+                    });
+            @foreach (var client in result)
+            {
+                <tr>
+                    <td>@client.FirstName</td>
+                    <td>@client.LastName</td>
+                    <td>@client.Patronymic</td>
+                    @*<td>@client.Email</td>
+                    <td>@client.Phone</td>
+                    <td>@client.DateOfBirth</td>*@
+                    <td>@client.DateShop</td>
+                    <td>@client.SumShop</td>
+                    <td>@client.PictureShop</td>
+                    <td>
+                        <a class="btn btn-success" asp-page="Operations/EditClient" asp-route-id="@client.ID">Edit</a>
+                        <a class="btn btn-danger">Delete</a>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Изображение</button>
+                    </td>
+                </tr>
+            }
         }
-    }
+                        <!-- Модальное окно -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Заголовок модального окна</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+              </div>
+              <div class="modal-body">
+                ...
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                <button type="button" class="btn btn-primary">Сохранить изменения</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
     </tbody>
 </table>
 </form>
