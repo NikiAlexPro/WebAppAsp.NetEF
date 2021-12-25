@@ -9,9 +9,9 @@ namespace WebAppCustom.Pages
     {
 
         public List<Client> listClients { get; set; }
-        public List<InfoClient> infoClients { get; set; }
+        //public List<InfoClient> infoClients { get; set; }
 
-        public List<(Client, InfoClient)> clients { get; set; }
+        //public List<(Client, InfoClient)> clients { get; set; }
         
 
         public void OnGet()
@@ -37,7 +37,7 @@ namespace WebAppCustom.Pages
                 //    infoClients = context.InfoClients.Where(x => x.Client_id == client.ID).ToList();
                 //}
                 /////////////////////////////////////////////////////////
-                //listClients = context.Clients.ToList();
+                listClients = context.Clients.ToList();
                 //clients = (List<(Client, InfoClient)>)listClients.Join(infoClients,
                 //    c => c.ID,
                 //    i => i.Client_id,

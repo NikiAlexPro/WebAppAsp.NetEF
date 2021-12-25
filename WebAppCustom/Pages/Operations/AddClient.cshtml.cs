@@ -12,8 +12,11 @@ namespace WebAppCustom.Pages.Operations
 
         [BindProperty]
         public Client? client { get; set; }
+        //[BindProperty]
+        //public InfoClient? infoClient { get; set; }
+
         [BindProperty]
-        public InfoClient infoClient { get; set; }
+        public ListShop ListShops { get; set; }
 
         //#region Переменные
         //public int? Id { get; set; }
@@ -26,12 +29,14 @@ namespace WebAppCustom.Pages.Operations
         //#endregion
         public void OnGet()
         {
+            
+
             //var result = infoClients.Join(listClients,
             //    i => i.Client_id,
             //    l => l.ID,
             //    (i, l) => new { }).ToList();
 
-            
+
         }
         //public IActionResult OnPost()
         //{
@@ -39,9 +44,18 @@ namespace WebAppCustom.Pages.Operations
         //}
         public IActionResult OnPostAddNameClient()
         {
+            ListShops.DateShop = DateTime.Now;
+            ListShops.SumShop = 99999;
+            ListShops.PictureShop = new byte[Byte.MaxValue];
+            ListShops.Client_id = client.ID;
+
             //infoClient.Client = client;
-            context.Clients.Add(client);//company        (list users)
-            context.InfoClients.Add(infoClient);//user   (one company)
+            ListShops.Client = client;
+
+            context.Clients.Add(client);
+            //context.InfoClients.Add(infoClient);
+            context.ListShops.Add(ListShops);
+            //context.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
             context.SaveChanges();
             return RedirectToPage("/Customers");
         }

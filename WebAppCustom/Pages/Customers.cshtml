@@ -30,17 +30,17 @@
         }
         else
         {
-            @foreach (var client in Model.clients)
+            @foreach (var client in Model.listClients)
         {
             <tr>
-                <td>@client.Item1.FirstName</td>
-                <td>@client.Item1.LastName</td>
-                <td>@client.Item1.Patronymic</td>
-                <td>@client.Item2.Email</td>
-                <td>@client.Item2.Phone</td>
-                <td>@client.Item2.DateOfBirth</td>
+                <td>@client.FirstName</td>
+                <td>@client.LastName</td>
+                <td>@client.Patronymic</td>
+                @*<td>@client.Email</td>
+                <td>@client.Phone</td>
+                <td>@client.DateOfBirth</td>*@
                 <td>
-                    <a class="btn btn-success" asp-page="Operations/EditClient" asp-route-id="@client.Item1.ID">Edit</a>
+                    <a class="btn btn-success" asp-page="Operations/EditClient" asp-route-id="@client.ID">Edit</a>
                     <a class="btn btn-danger">Delete</a>
                 </td>
                 
