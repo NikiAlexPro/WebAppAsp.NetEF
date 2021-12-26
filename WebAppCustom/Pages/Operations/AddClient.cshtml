@@ -41,6 +41,21 @@
                 <span  class="text-danger"></span>
             </div>*@
             <div class="form-group">
+                <label>DateShop</label>
+                <input type="text" class="form-control" name="DateShop" asp-for=ListShops.DateShop/>
+                <span  class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>SumShop</label>
+                <input type="text" class="form-control" name="SumShop" asp-for=ListShops.SumShop/>
+                <span  class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Picture</label>
+                <input type="text" class="form-control" name="PictureShop" asp-for=ListShops.PictureShop/>
+                <span  class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" asp-page-handler=AddNameClient value="Create" class="btn btn-primary"/>
             </div>
         </form>
