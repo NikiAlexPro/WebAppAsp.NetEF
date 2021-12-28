@@ -22,5 +22,10 @@ namespace WebAppCustom.Pages
                 shops = context.ListShops.ToList();
             }
         }
+
+        public IActionResult OnPost()
+        {
+            return RedirectToPage("Operations/AddOrder");
+        }
     }
 }

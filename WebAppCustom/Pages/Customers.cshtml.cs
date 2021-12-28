@@ -20,7 +20,7 @@ namespace WebAppCustom.Pages
             {
                 listClients = context.Clients.ToList();
                 shops = context.ListShops.ToList();
-
+                
                 //var result = listClients.Join(shops,
                 //    c => c.ID,
                 //    s => s.Client_id,
@@ -40,6 +40,10 @@ namespace WebAppCustom.Pages
         public IActionResult OnPost()
         {
             return RedirectToPage("Operations/AddClient");
+        }
+
+        public void OnPostRowSelect(int a)
+        {
 
         }
     }
