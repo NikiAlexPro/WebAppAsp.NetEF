@@ -13,22 +13,36 @@ namespace WebAppCustom.Pages.Operations
         public Client? client { get; set; }
 
         [BindProperty]
-        public ListShop ListShops { get; set; }
+        public ListShop? ListShops { get; set; }
+
+        [BindProperty]
+        public InfoClient? InfoClient { get; set; }
 
         public List<Client>? listClients { get; set; }
 
         public List<InfoClient>? infoClients { get; set; }
 
 
-        public void OnGet()
+        public void OnGet(int ID)
         {
             using (ApplicationContext context = new ApplicationContext())
             {
-                //listClients = context.Clients.ToList();
-                infoClients = context.InfoClients.ToList();
-                listClients = context.Clients.ToList();
+                if(ID == 0)
+                {
+                    infoClients = context.InfoClients.ToList();
+                    listClients = context.Clients.ToList();
+                }
+                else
+                {
+                    infoClients = context.InfoClients.ToList();
+                    listClients = context.Clients.ToList();
+                    InfoClient = infoClients.FirstOrDefault(x => x.ID == ID);
+                    client = listClients.FirstOrDefault(x => x.ID == InfoClient.Client_id);
+                }
+
             }
         }
+
 
         //public IActionResult 
     }
