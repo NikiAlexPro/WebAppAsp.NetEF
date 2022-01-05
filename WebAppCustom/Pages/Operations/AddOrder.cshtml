@@ -5,3 +5,138 @@
 }
 
 <p>Add Order TEST</p>
+
+
+<h1>Create</h1>
+<h4>clients</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Выбрать покупателя</button></td>
+            <div class="form-group">
+                    <span>FirstName</span>
+                    <input type="text" class="form-control" name="FirstName" placeholder="Имя" asp-for=client.FirstName/>
+                    <span class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                    <label>LastName</label>
+                    <input type="text" class="form-control" name="LastName" asp-for=client.LastName/>
+                    <span  class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Patronymic</label>
+                <input type="text" class="form-control" name="Patronymic" asp-for=client.Patronymic/>
+                <span  class="text-danger"></span>
+            </div>
+            @*<div class="form-floating mb-3">
+              <input type="email" class="form-control" name="Email" asp-for=infoClient.Email/>
+              <label for="floatingInput">Адрес электронной почты</label>
+            </div>
+            <div class="form-group">
+                <label>Phone</label>
+                <input type="text" class="form-control" name="Phone" asp-for=infoClient.Phone/>
+                <span  class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>DateOfBirth</label>
+                <input type="text" class="form-control" name="DateOfBirth" asp-for=infoClient.DateOfBirth/>
+                <span  class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label>DateShop</label>
+                <input type="text" class="form-control" name="DateShop" asp-for=ListShops.DateShop/>
+                <span  class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>SumShop</label>
+                <input type="text" class="form-control" name="SumShop" asp-for=ListShops.SumShop/>
+                <span  class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Picture</label>
+                <input type="text" class="form-control" name="PictureShop" asp-for=ListShops.PictureShop/>
+                <span  class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" asp-page-handler=AddNameClient value="Create" class="btn btn-primary"/>
+            </div>
+
+                        <!-- Модальное окно -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Заголовок модального окна</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                          </div>
+                          <div class="modal-body">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Имя</th>
+                    <th>Фамилия</th>
+                    <th>Отчество</th>
+                    <th>Email</th>
+                    <th>Телефон</th>
+                    <th>Дата Рождения</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if(Model.listClients is null)
+                        {
+                            <tr>Data is null</tr>
+                        }
+                        else
+                        {
+                            var result = Model.listClients.Join(Model.infoClients,
+                                    c => c.ID,
+                                    s => s.Client_id,
+                                    (c, s) => new
+                                    {
+                                        ID = c.ID,
+                                        FirstName = c.FirstName,
+                                        LastName = c.LastName,
+                                        Patronymic = c.Patronymic,
+                                        Email = s.Email,
+                                        Phone = s.Phone,
+                                        DateOfBirth = s.DateOfBirth
+                                    });
+                            @foreach (var client in result)
+                            {
+                                 <tr>
+                                     @*onclick="location.href='@(Url.Action("Customers", new {newID = client.ID}))'"*@
+                                    <td>@client.FirstName</td>
+                                    <td>@client.LastName</td>
+                                    <td>@client.Patronymic</td>
+                                    <td>@client.Email</td>
+                                    <td>@client.Phone</td>
+                                    <td>@client.DateOfBirth</td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+        </table>
+                            </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                            <button type="button" class="btn btn-primary">Сохранить изменения</button>
+                          </div>
+                        </div>
+                      </div>
+            </div>
+
+
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="/Customers">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
