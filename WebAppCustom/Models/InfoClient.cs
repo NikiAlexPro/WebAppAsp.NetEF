@@ -5,7 +5,7 @@ namespace WebAppCustom.Models
     {
         public int ID { get; set; }
         public string Email { get; set; }
-        public Decimal Phone { get; set; }
+        public string Phone { get; set; }
         public DateTime DateOfBirth { get; set; }
         public int Client_id { get; set; }
 

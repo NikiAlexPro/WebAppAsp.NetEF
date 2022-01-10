@@ -30,19 +30,20 @@
         }
         else
         {
-            var result = Model.listClients.Join(Model.shops,
-                    c => c.ID,
-                    s => s.Client_id,
-                    (c, s) => new
-                    {
-                        ID = c.ID,
-                        FirstName = c.FirstName,
-                        LastName = c.LastName,
-                        Patronymic = c.Patronymic,
-                        DateShop = s.DateShop,
-                        SumShop = s.SumShop,
-                        PictureShop = s.PictureShop
-                    });
+            var result = Model.listClients.Join(Model.infoClients,
+                                    c => c.ID,
+                                    s => s.Client_id,
+                                    (c, s) => new
+                                    {
+                                        ID = c.ID,
+                                        infoClientID = s.ID,
+                                        FirstName = c.FirstName,
+                                        LastName = c.LastName,
+                                        Patronymic = c.Patronymic,
+                                        Email = s.Email,
+                                        Phone = s.Phone,
+                                        DateOfBirth = s.DateOfBirth
+                                    });
             @foreach (var client in result)
             {
                  <tr>
@@ -50,12 +51,12 @@
                     <td>@client.FirstName</td>
                     <td>@client.LastName</td>
                     <td>@client.Patronymic</td>
-                    @*<td>@client.Email</td>
+                    <td>@client.Email</td>
                     <td>@client.Phone</td>
-                    <td>@client.DateOfBirth</td>*@
-                    <td>@client.DateShop</td>
+                    <td>@client.DateOfBirth</td>
+                    @*<td>@client.DateShop</td>
                     <td>@client.SumShop</td>
-                    <td>@client.PictureShop</td>
+                    <td>@client.PictureShop</td>*@
                     <td>
                         <a class="btn btn-success" asp-page="Operations/EditClient" asp-route-id="@client.ID">Edit</a>
                         <a class="btn btn-danger">Delete</a>

@@ -25,8 +25,8 @@ namespace WebAppCustom.Pages.Operations
 
         public void OnGet(int ID)
         {
-            using (ApplicationContext context = new ApplicationContext())
-            {
+            ApplicationContext context = new ApplicationContext();
+            
                 infoClients = context.InfoClients.ToList();
                 listClients = context.Clients.ToList();
                 if (ID != 0)
@@ -34,6 +34,17 @@ namespace WebAppCustom.Pages.Operations
                     InfoClient = infoClients.FirstOrDefault(x => x.ID == ID);
                     client = listClients.FirstOrDefault(x => x.ID == InfoClient.Client_id);
                 }
+            //context.Dispose();
+        }
+
+        public void OnPostAddOrder()
+        {
+            using(ApplicationContext context = new ApplicationContext())
+            {
+                //DETAIL
+                ListShops.Client = client;
+                context.ListShops.Add(ListShops);
+                context.SaveChanges();
             }
         }
         

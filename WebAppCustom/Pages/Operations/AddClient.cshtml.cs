@@ -19,6 +19,8 @@ namespace WebAppCustom.Pages.Operations
         [BindProperty]
         public ListShop? ListShops { get; set; }
 
+        public Client? findClient { get; set; }
+
         //#region Переменные
         //public int? Id { get; set; }
         //public string? FirstName { get; set; }
@@ -45,11 +47,22 @@ namespace WebAppCustom.Pages.Operations
         //}
         public IActionResult OnPostAddNameClient()
         {
-            //ListShops.DateShop = DateTime.Now;
-            //ListShops.SumShop = 99999;
-            //ListShops.PictureShop = new byte[Byte.MaxValue];
-            //ListShops.Client_id = client.ID;
-            //ListShops.Client = client;
+            //Поиск клиента с похожими ФИО
+            //Если есть похожий - находим его ID и добавляем к нему InfoClient с новым ID
+            //Иначе - создаем нового клиента в БД
+            findClient = context.Clients.FirstOrDefault(c =>
+            c.FirstName == client.FirstName ||
+            c.LastName == client.LastName ||
+            c.Patronymic == client.Patronymic);
+
+            if (findClient != null)
+            {
+                infoClient.Client_id = findClient.ID;
+                infoClient.Client = findClient;
+
+                //context.Clients.Add(client);
+                context.InfoClients.Add(infoClient);
+            }
 
             infoClient.Client_id = client.ID;
             infoClient.Client = client;

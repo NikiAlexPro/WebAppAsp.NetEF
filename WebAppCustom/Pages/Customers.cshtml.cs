@@ -9,7 +9,7 @@ namespace WebAppCustom.Pages
     {
 
         public List<Client>? listClients { get; set; }
-        //public List<InfoClient> infoClients { get; set; }
+        public List<InfoClient>? infoClients { get; set; }
         public List<ListShop>? shops { get; set; }
         
         //public List<FullClient> fullClients { get; set; }
@@ -19,7 +19,8 @@ namespace WebAppCustom.Pages
             using (ApplicationContext context = new ApplicationContext())
             {
                 listClients = context.Clients.ToList();
-                shops = context.ListShops.ToList();
+                //shops = context.ListShops.ToList();
+                infoClients = context.InfoClients.ToList();
                 
                 //var result = listClients.Join(shops,
                 //    c => c.ID,

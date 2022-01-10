@@ -41,6 +41,7 @@
                         SumShop = s.SumShop,
                         PictureShop = s.PictureShop
                     });*@
+
             @foreach (var client in Model.shops)
             {
                 <tr>
@@ -55,7 +56,7 @@
                     <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">@client.PictureShop</button></td>
                     <td>
                         @*<a class="btn btn-danger" asp-page-handler=DeleteOrder asp-route-id=@client.Client_id>Delete</a>*@
-                        <input type="submit" asp-page-handler=DeleteOrder value="Delete" class="btn btn-danger" asp-route-id=@client.Client_id/>
+                        <input type="submit" asp-page-handler=DeleteOrder value="Delete" class="btn btn-danger" asp-route-id=@client.ID/>
                         @*detail*@
                     </td>
                 </tr>
@@ -79,7 +80,6 @@
             </div>
           </div>
         </div>
-
     </tbody>
 </table>
 </form>

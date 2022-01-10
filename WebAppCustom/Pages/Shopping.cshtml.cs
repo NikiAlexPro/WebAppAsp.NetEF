@@ -30,8 +30,13 @@ namespace WebAppCustom.Pages
 
         public void OnPostDeleteOrder(int ID)
         {
-
-            RedirectToPage("/Shopping");
+            using (ApplicationContext context = new ApplicationContext())
+            {
+                shops = context.ListShops.ToList();
+                context.ListShops.Remove(shops.FirstOrDefault(x => x.ID==ID));
+                context.SaveChanges();
+            }
+            Response.Redirect("/Shopping");
         }
     }
 }
