@@ -27,23 +27,15 @@ namespace WebAppCustom.Pages.Operations
         {
             using (ApplicationContext context = new ApplicationContext())
             {
-                if(ID == 0)
+                infoClients = context.InfoClients.ToList();
+                listClients = context.Clients.ToList();
+                if (ID != 0)
                 {
-                    infoClients = context.InfoClients.ToList();
-                    listClients = context.Clients.ToList();
-                }
-                else
-                {
-                    infoClients = context.InfoClients.ToList();
-                    listClients = context.Clients.ToList();
                     InfoClient = infoClients.FirstOrDefault(x => x.ID == ID);
                     client = listClients.FirstOrDefault(x => x.ID == InfoClient.Client_id);
                 }
-
             }
         }
-
-
-        //public IActionResult 
+        
     }
 }

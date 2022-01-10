@@ -12,11 +12,12 @@ namespace WebAppCustom.Pages.Operations
 
         [BindProperty]
         public Client? client { get; set; }
-        //[BindProperty]
-        //public InfoClient? infoClient { get; set; }
 
         [BindProperty]
-        public ListShop ListShops { get; set; }
+        public InfoClient? infoClient { get; set; }
+
+        [BindProperty]
+        public ListShop? ListShops { get; set; }
 
         //#region Переменные
         //public int? Id { get; set; }
@@ -44,17 +45,19 @@ namespace WebAppCustom.Pages.Operations
         //}
         public IActionResult OnPostAddNameClient()
         {
-            ListShops.DateShop = DateTime.Now;
-            ListShops.SumShop = 99999;
-            ListShops.PictureShop = new byte[Byte.MaxValue];
-            ListShops.Client_id = client.ID;
+            //ListShops.DateShop = DateTime.Now;
+            //ListShops.SumShop = 99999;
+            //ListShops.PictureShop = new byte[Byte.MaxValue];
+            //ListShops.Client_id = client.ID;
+            //ListShops.Client = client;
 
-            //infoClient.Client = client;
-            ListShops.Client = client;
+            infoClient.Client_id = client.ID;
+            infoClient.Client = client;
 
             context.Clients.Add(client);
-            //context.InfoClients.Add(infoClient);
-            context.ListShops.Add(ListShops);
+            context.InfoClients.Add(infoClient);
+            //context.ListShops.Add(ListShops);
+            
             //context.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
             context.SaveChanges();
             return RedirectToPage("/Customers");

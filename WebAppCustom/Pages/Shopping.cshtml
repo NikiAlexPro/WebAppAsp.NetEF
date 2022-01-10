@@ -54,12 +54,14 @@
                     <td>@client.SumShop</td>
                     <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">@client.PictureShop</button></td>
                     <td>
-                        <a class="btn btn-danger">Delete</a>
+                        @*<a class="btn btn-danger" asp-page-handler=DeleteOrder asp-route-id=@client.Client_id>Delete</a>*@
+                        <input type="submit" asp-page-handler=DeleteOrder value="Delete" class="btn btn-danger" asp-route-id=@client.Client_id/>
+                        @*detail*@
                     </td>
                 </tr>
             }
         }
-                        <!-- Модальное окно -->
+                        <!-- Модальное окно изображение -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">

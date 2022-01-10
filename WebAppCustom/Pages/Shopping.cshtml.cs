@@ -27,5 +27,11 @@ namespace WebAppCustom.Pages
         {
             return RedirectToPage("Operations/AddOrder");
         }
+
+        public void OnPostDeleteOrder(int ID)
+        {
+
+            RedirectToPage("/Shopping");
+        }
     }
 }
