@@ -43,9 +43,15 @@ namespace WebAppCustom.Pages
             return RedirectToPage("Operations/AddClient");
         }
 
-        public void OnPostRowSelect(int a)
+        public void OnPostDeleteClient(int ID)
         {
-
+            using (ApplicationContext context = new ApplicationContext())
+            {
+                infoClients = context.InfoClients.ToList();
+                context.InfoClients.Remove(infoClients.FirstOrDefault(i => i.ID == ID));
+                context.SaveChanges();
+            }
+            Response.Redirect("/Customers");
         }
     }
 }

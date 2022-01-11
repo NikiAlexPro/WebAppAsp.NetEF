@@ -43,9 +43,11 @@ namespace WebAppCustom.Pages.Operations
             {
                 //DETAIL
                 ListShops.Client = client;
+                ListShops.PictureShop = new byte[1];///DELETE
                 context.ListShops.Add(ListShops);
                 context.SaveChanges();
             }
+            Response.Redirect("/Shopping");
         }
         
     }

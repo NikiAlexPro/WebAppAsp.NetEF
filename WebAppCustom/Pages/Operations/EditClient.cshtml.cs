@@ -44,7 +44,7 @@ namespace WebAppCustom.Pages.Operations
             //context.Entry(infoClient).CurrentValues.SetValues(infoClient);
             //TEST
             context.SaveChanges();
-            RedirectToPage("/Customers");
+            Response.Redirect("/Customers");
         }
     }
 }

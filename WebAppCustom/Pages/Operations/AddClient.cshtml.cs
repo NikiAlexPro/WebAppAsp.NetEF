@@ -63,14 +63,15 @@ namespace WebAppCustom.Pages.Operations
                 //context.Clients.Add(client);
                 context.InfoClients.Add(infoClient);
             }
+            else
+            {
+                infoClient.Client_id = client.ID;
+                infoClient.Client = client;
 
-            infoClient.Client_id = client.ID;
-            infoClient.Client = client;
-
-            context.Clients.Add(client);
-            context.InfoClients.Add(infoClient);
-            //context.ListShops.Add(ListShops);
-            
+                context.Clients.Add(client);
+                context.InfoClients.Add(infoClient);
+                //context.ListShops.Add(ListShops);
+            }
             //context.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
             context.SaveChanges();
             return RedirectToPage("/Customers");

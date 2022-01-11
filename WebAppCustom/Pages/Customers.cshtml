@@ -59,7 +59,7 @@
                     <td>@client.PictureShop</td>*@
                     <td>
                         <a class="btn btn-success" asp-page="Operations/EditClient" asp-route-id="@client.ID">Edit</a>
-                        <a class="btn btn-danger">Delete</a>
+                        <input type="submit" asp-page-handler=DeleteClient value="Delete" class="btn btn-danger" asp-route-id=@client.infoClientID/>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Изображение</button>
                     </td>
                 </tr>
