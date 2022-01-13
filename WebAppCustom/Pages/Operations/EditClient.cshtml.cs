@@ -8,10 +8,10 @@ namespace WebAppCustom.Pages.Operations
     {
         ApplicationContext context = new ApplicationContext();
 
-        public Client SearchClient { get; set; }
+        public static Client SearchClient { get; set; }
 
         [BindProperty]
-        public Client client { get; set; }
+        public Client? client { get; set; }
 
         [BindProperty]
         public InfoClient infoClient { get; set; }
@@ -36,16 +36,33 @@ namespace WebAppCustom.Pages.Operations
 
         public void OnPostEditNameClient()
         {
-            //if()
-            client.ID = clientID;
-            infoClient.ID = InfoID;
-            infoClient.Client_id = clientID;
-            infoClient.Client = client;
-            //infoClient.Client = client;
-            context.InfoClients.Update(infoClient);
-            context.Clients.Update(client);
-            //context.Entry(infoClient).CurrentValues.SetValues(infoClient);
-            //TEST
+            if(client.Compare(SearchClient)) //Если имена одинаковые
+            {
+                client.ID = clientID;
+                infoClient.ID = InfoID;
+                infoClient.Client_id = clientID;
+                infoClient.Client = client;
+                //infoClient.Client = client;
+                context.InfoClients.Update(infoClient);
+                context.Clients.Update(client);
+            }
+            else
+            {
+                context.Clients.Add(client);
+                context.SaveChanges();
+                client = context.Clients.FirstOrDefault(c => c.FirstName == client.FirstName &&
+                                                                           c.LastName == client.LastName &&
+                                                                           c.Patronymic == client.Patronymic);
+                //infoClient.ID = InfoID;
+                infoClient.Client_id = client.ID;
+                infoClient.Client = client;
+                
+                
+                context.InfoClients.Add(infoClient);
+                //SearchClient.
+            }    
+                
+
             context.SaveChanges();
             Response.Redirect("/Customers");
         }

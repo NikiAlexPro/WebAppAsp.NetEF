@@ -51,8 +51,8 @@ namespace WebAppCustom.Pages.Operations
             //Если есть похожий - находим его ID и добавляем к нему InfoClient с новым ID
             //Иначе - создаем нового клиента в БД
             findClient = context.Clients.FirstOrDefault(c =>
-            c.FirstName == client.FirstName ||
-            c.LastName == client.LastName ||
+            c.FirstName == client.FirstName &&
+            c.LastName == client.LastName &&
             c.Patronymic == client.Patronymic);
             /// БАГ (изменения всех, кто привязан к ID) =  if( && client.Compare(findClient)) // Если пользователь тот же, то меняем только infoClient
             if (findClient != null)
@@ -65,11 +65,17 @@ namespace WebAppCustom.Pages.Operations
             }
             else
             {
-                //
+                context.Clients.Add(client);
+                context.SaveChanges();
+                client = context.Clients.FirstOrDefault(c => c.FirstName == client.FirstName &&
+                                                                           c.LastName == client.LastName &&
+                                                                           c.Patronymic == client.Patronymic);
+                //Сначала добавить клиента, достать его, а потом уже присваивать info на клиента!!!!!!!!!!!!!!!!!!!!!
+                //!!!!!!!!!!!!!!!!!!
                 infoClient.Client_id = client.ID;
                 infoClient.Client = client;
 
-                context.Clients.Add(client);
+                
                 context.InfoClients.Add(infoClient);
                 //context.ListShops.Add(ListShops);
             }

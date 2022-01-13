@@ -7,12 +7,17 @@ namespace WebAppCustom.Models
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
         public string? Patronymic { get; set; }
-        //public List<InfoClient> InfoClients { get; set; } = new();
+        public List<InfoClient> InfoClients { get; set; } = new();
         public List<ListShop> listShops { get; set; } = new();
 
         public bool Compare(Client client)
         {
-            //return this.
+            if (this.FirstName == client.FirstName &&
+                this.LastName == client.LastName &&
+                this.Patronymic == client.Patronymic)
+                return true;
+            else 
+                return false;
         }
     }
 }
