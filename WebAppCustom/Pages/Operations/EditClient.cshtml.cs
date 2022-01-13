@@ -8,12 +8,13 @@ namespace WebAppCustom.Pages.Operations
     {
         ApplicationContext context = new ApplicationContext();
 
+        public Client SearchClient { get; set; }
+
         [BindProperty]
         public Client client { get; set; }
 
         [BindProperty]
         public InfoClient infoClient { get; set; }
-
         public static int clientID  { get; set; }
         public static int InfoID { get; set; }
 
@@ -24,6 +25,7 @@ namespace WebAppCustom.Pages.Operations
             infoClient = context.InfoClients.Where(p => p.Client_id == client.ID).FirstOrDefault();
             clientID = client.ID;
             InfoID = infoClient.ID;
+            SearchClient = context.Clients.Where(i => i.ID == ID).FirstOrDefault();
             //FirstName = client.FirstName;
             //LastName = client.LastName;
             //Patronymic = client.Patronymic;
@@ -34,6 +36,7 @@ namespace WebAppCustom.Pages.Operations
 
         public void OnPostEditNameClient()
         {
+            //if()
             client.ID = clientID;
             infoClient.ID = InfoID;
             infoClient.Client_id = clientID;

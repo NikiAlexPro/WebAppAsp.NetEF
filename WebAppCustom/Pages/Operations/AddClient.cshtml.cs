@@ -54,7 +54,7 @@ namespace WebAppCustom.Pages.Operations
             c.FirstName == client.FirstName ||
             c.LastName == client.LastName ||
             c.Patronymic == client.Patronymic);
-
+            /// БАГ (изменения всех, кто привязан к ID) =  if( && client.Compare(findClient)) // Если пользователь тот же, то меняем только infoClient
             if (findClient != null)
             {
                 infoClient.Client_id = findClient.ID;
@@ -65,6 +65,7 @@ namespace WebAppCustom.Pages.Operations
             }
             else
             {
+                //
                 infoClient.Client_id = client.ID;
                 infoClient.Client = client;
 
