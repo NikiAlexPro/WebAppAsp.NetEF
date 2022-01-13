@@ -18,6 +18,11 @@ namespace WebAppCustom.Pages.Operations
         [BindProperty]
         public InfoClient? InfoClient { get; set; }
 
+        [BindProperty]
+        public IFormFile? FormFile { get; set; }
+        [BindProperty]
+        public IFormFile? formFile { get; set; }
+
         public List<Client>? listClients { get; set; }
 
         public List<InfoClient>? infoClients { get; set; }
@@ -49,6 +54,6 @@ namespace WebAppCustom.Pages.Operations
             }
             Response.Redirect("/Shopping");
         }
-        
+
     }
 }
