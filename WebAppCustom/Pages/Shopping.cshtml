@@ -6,7 +6,7 @@
 
 <p>Test Shopping</p>
 
-<form method="post">
+<form method="post" data-ajax="true" data-ajax-method="post">
     <input type="submit" value="Add Order" class="btn btn-primary" />
 
 
@@ -53,17 +53,27 @@
                     <td>@client.DateOfBirth</td>*@
                     <td>@client.DateShop</td>
                     <td>@client.SumShop</td>
-                    <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">@client.PictureShop</button></td>
+                    @*<td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">@client.PictureShop</button></td>*@
+                    
+                    @*"data:image/jpeg;base64,@(Convert.ToBase64String(client.PictureShop))"*@
+                    <td><img class="image" style="width:30%;cursor:zoom-in" src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e"></img></td>
+                    
+                    @*<td>
+                    <a class="first" title="Цветы на фоне неба" href="images/test.jpg"><img src="/images/test.jpg" border="0"></a>
+                    </td>*@
+
                     <td>
-                        @*<a class="btn btn-danger" asp-page-handler=DeleteOrder asp-route-id=@client.Client_id>Delete</a>*@
+                        @*<a class="btn btn-danger" asp-page-handler=DeleteOrder asp-route-id=@client.Client_Прикid>Delete</a>*@
                         <input type="submit" asp-page-handler=DeleteOrder value="Delete" class="btn btn-danger" asp-route-id=@client.ID/>
                         @*detail*@
                     </td>
                 </tr>
             }
         }
+
+
                         <!-- Модальное окно изображение -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" role="dialog">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
@@ -72,6 +82,8 @@
               </div>
               <div class="modal-body">
                 @*<img src="data:image;base64,@System.Convert.ToBase64String(img.ImageItem)" class="img-tests"/>*@
+                
+                <img src="" class="imagepreview">
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
@@ -83,3 +95,17 @@
     </tbody>
 </table>
 </form>
+
+@section Scripts {
+    <script type="text/javascript">
+ 
+        $(function() {
+                        $('.image').on('click', function() {
+                            var a = $('.image').attr('src');
+                            console.log(a);
+                            $('.imagepreview').attr('src', $('.image').attr('src'));
+                            $('#exampleModal').modal('show');   
+                        });     
+                    });
+    </script>
+}

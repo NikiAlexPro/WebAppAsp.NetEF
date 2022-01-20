@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using WebAppCustom.Models;
+using System.Dynamic;
 
 namespace WebAppCustom.Pages
 {
@@ -25,6 +26,7 @@ namespace WebAppCustom.Pages
 
         public IActionResult OnPost()
         {
+            
             return RedirectToPage("Operations/AddOrder");
         }
 

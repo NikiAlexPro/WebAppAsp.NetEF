@@ -57,7 +57,7 @@
             <div class="form-group">
                 <div class="mb-3">
                     @*<label for="formFile" class="form-label">Изображение заказа</label>  id="formFile" *@
-                    <input asp-for=FormFile class="form-control" type="file">
+                    <input asp-for=FormFile class="form-control" type="file" accept=".jpg,.jpeg,.png,.bmp">
                     <span asp-validation-for="FormFile"></span>
                 </div>
             </div>

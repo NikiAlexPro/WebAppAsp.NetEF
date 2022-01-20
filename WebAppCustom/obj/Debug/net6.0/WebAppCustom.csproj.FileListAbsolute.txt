@@ -29,4 +29,9 @@ C:\Users\NikAlex\source\repos\WebAppCustom\WebAppCustom\obj\Debug\net6.0\WebAppC
 C:\Users\NikAlex\source\repos\WebAppCustom\WebAppCustom\obj\Debug\net6.0\ref\WebAppCustom.dll
 C:\Users\NikAlex\source\repos\WebAppCustom\WebAppCustom\obj\Debug\net6.0\WebAppCustom.pdb
 C:\Users\NikAlex\source\repos\WebAppCustom\WebAppCustom\obj\Debug\net6.0\WebAppCustom.genruntimeconfig.cache
+C:\Users\NikAlex\source\repos\WebAppCustom\WebAppCustom\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\NikAlex\source\repos\WebAppCustom\WebAppCustom\bin\Debug\net6.0\System.Drawing.Common.dll
+C:\Users\NikAlex\source\repos\WebAppCustom\WebAppCustom\bin\Debug\net6.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\NikAlex\source\repos\WebAppCustom\WebAppCustom\bin\Debug\net6.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+C:\Users\NikAlex\source\repos\WebAppCustom\WebAppCustom\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 C:\Users\NikAlex\source\repos\WebAppCustom\WebAppCustom\obj\Debug\net6.0\WebAppCustom.csproj.AssemblyReference.cache
